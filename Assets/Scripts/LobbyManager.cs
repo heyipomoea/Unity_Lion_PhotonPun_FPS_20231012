@@ -148,7 +148,7 @@ namespace Heyipomoea
         [PunRPC]
         private void RPCLoadGameScene()
         {
-            Debug.LogError("開始遊戲");
+            //Debug.LogError("開始遊戲");
             PhotonNetwork.LoadLevel("遊戲場景");
         }
 
