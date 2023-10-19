@@ -3,15 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - CinemachineTarget
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - "\u9AB7\u9ACF\u982D"
   - Water
   - UI
-  - 
+  - "\u73A9\u5BB6"
   - 
   - 
   - 

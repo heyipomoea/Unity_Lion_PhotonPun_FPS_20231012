@@ -1,5 +1,6 @@
 ﻿using Photon.Pun;
 using StarterAssets;
+using TMPro;
 using UnityEngine;
 
 
@@ -16,6 +17,10 @@ namespace Heyipomoea
         private GameObject objectCameraFollow;
         [SerializeField, Header("第一人稱控制器")]
         private FirstPersonController firstPersonController;
+        [SerializeField, Header("玩家名稱")]
+        private TextMeshProUGUI textPlayerName;
+        [SerializeField, Header("骷髏頭模型")]
+        private GameObject objectSkullHead;
 
         private string pointName = "生成點";
 
@@ -28,6 +33,11 @@ namespace Heyipomoea
                 objectCameraFollow.SetActive(false);
                 firstPersonController.enabled = false;
             }
+            else if(photonView.IsMine)
+            {
+                objectSkullHead.layer = 3;
+            }
+            textPlayerName.text = photonView.Owner.NickName;
         }
 
         /// <summary>

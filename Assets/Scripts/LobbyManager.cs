@@ -97,7 +97,11 @@ namespace Heyipomoea
         /// </summary>
         private void GetInputFieldData()
         {
-            inputFieldName.onEndEdit.AddListener((input) => namePlayer = input);
+            inputFieldName.onEndEdit.AddListener((input) =>
+            {
+                namePlayer = input;
+                PhotonNetwork.NickName = namePlayer;
+            });
             inputFieldCreateRoomName.onEndEdit.AddListener((input) => nameCreateRoom = input);
             inputFieldJoinRoomName.onEndEdit.AddListener((input) => nameJoinRoom = input);
         }
