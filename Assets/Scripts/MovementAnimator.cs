@@ -1,4 +1,5 @@
-﻿using StarterAssets;
+﻿using Photon.Pun;
+using StarterAssets;
 using UnityEngine;
 
 
@@ -7,7 +8,7 @@ namespace Heyipomoea
     /// <summary>
     /// 移動動畫
     /// </summary>
-    public class MovementAnimator : MonoBehaviour
+    public class MovementAnimator : MonoBehaviourPun
     {
         [SerializeField, Header("角色控制器")]
         private CharacterController characterController;
@@ -19,6 +20,8 @@ namespace Heyipomoea
 
         private void Awake()
         {
+            if (!photonView.IsMine) enabled = false;
+
             ani = GetComponent<Animator>();
         }
 
