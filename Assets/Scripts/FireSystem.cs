@@ -6,12 +6,14 @@ namespace Heyipomoea
     /// <summary>
     /// 開槍系統
     /// </summary>
-    public class FireSystem : MonoBehaviour
+    public class FireSystem : MonoBehaviourPun
     {
         [SerializeField, Header("子彈預製物")]
         private GameObject prefabBullet;
         [SerializeField, Header("槍口")]
         private Transform pointFire;
+        [SerializeField, Header("攝影機")]
+        private Transform pointCamera;
 
         private Vector3 _pointHit;
         private Vector3 pointHit
@@ -20,7 +22,7 @@ namespace Heyipomoea
             {
                 if (_pointHit == Vector3.zero)
                 {
-                    return Camera.main.transform.forward * 100;
+                    return pointCamera.forward * 100;
                 }
                 else
                 {
@@ -36,7 +38,7 @@ namespace Heyipomoea
             Gizmos.DrawRay(pointFire.position, pointFire.forward * 100);
 
             Gizmos.color = new Color(1, 0.3f, 0.3f, 0.7f);
-            Gizmos.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * 100);
+            Gizmos.DrawRay(pointCamera.position, pointCamera.forward * 100);
 
             Gizmos.color = new Color(0.95f, 0.8f, 0.6f, 0.9f);
             Gizmos.DrawLine(pointFire.position, pointHit);
@@ -53,11 +55,17 @@ namespace Heyipomoea
         /// </summary>
         private void Fire()
         {
-            if(Input.GetKeyDown(KeyCode.Mouse0))
+            if(photonView.IsMine && Input.GetKeyDown(KeyCode.Mouse0))
             {
-                GameObject tempBullet = PhotonNetwork.Instantiate(prefabBullet.name, pointFire.position, Quaternion.identity);
-                tempBullet.GetComponent<Bullet>().targetPoint = pointHit;
+                photonView.RPC("RPCSpawnBullet", RpcTarget.All);
             }
+        }
+
+        [PunRPC]
+        private void RPCSpawnBullet()
+        {
+            GameObject tempBullet = Instantiate(prefabBullet, pointFire.position, Quaternion.identity);
+            tempBullet.GetComponent<Bullet>().targetPoint = pointHit;
         }
 
         /// <summary>
@@ -65,8 +73,8 @@ namespace Heyipomoea
         /// </summary>
         private void CheckHitPoint()
         {
-            Vector3 posStart = Camera.main.transform.position;
-            Vector3 posDirection = Camera.main.transform.forward;
+            Vector3 posStart = pointCamera.position;
+            Vector3 posDirection = pointCamera.forward;
             RaycastHit hit;
 
             if(Physics.Raycast(posStart, posDirection, out hit, 100))

@@ -31,6 +31,16 @@ namespace Heyipomoea
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPoint, speed * Time.deltaTime);
         }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            Destroy(gameObject);
+        }
+
+        private void OnBecameInvisible()
+        {
+            Destroy(gameObject);
+        }
     }
 }
 

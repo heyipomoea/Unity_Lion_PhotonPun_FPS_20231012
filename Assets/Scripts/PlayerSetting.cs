@@ -26,6 +26,8 @@ namespace Heyipomoea
         private GameObject objectMainCanvas;
         [SerializeField, Header("開槍系統")]
         private FireSystem fireSystem;
+        [SerializeField, Header("輸入資源")]
+        private StarterAssetsInputs starterAssetsInputs;
 
         private string pointName = "生成點";
 
@@ -43,7 +45,8 @@ namespace Heyipomoea
                 objectCameraFollow.SetActive(false);
                 firstPersonController.enabled = false;
                 objectMainCanvas.SetActive(false);
-                fireSystem.enabled = false;
+                //fireSystem.enabled = false;
+                starterAssetsInputs.cursorLocked = false;
             }
             else if(photonView.IsMine)
             {
