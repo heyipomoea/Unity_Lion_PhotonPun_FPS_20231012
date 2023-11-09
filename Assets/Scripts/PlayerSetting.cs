@@ -48,6 +48,7 @@ namespace Heyipomoea
             else if(photonView.IsMine)
             {
                 objectSkullHead.layer = 3;
+                firstPersonController.transform.localPosition = Vector3.zero;
             }
             textPlayerName.text = photonView.Owner.NickName;
         }
