@@ -661,7 +661,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &246615920611662292
 Transform:
   m_ObjectHideFlags: 0
@@ -679,7 +679,7 @@ Transform:
   - {fileID: 2648687532248439990}
   - {fileID: 1840980079099394139}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3992742651391863310
 MonoBehaviour:
@@ -726,6 +726,7 @@ MonoBehaviour:
   objectSkullHead: {fileID: 4483541800911792703}
   objectMainCanvas: {fileID: 249445719849636444}
   fireSystem: {fileID: 3684784536836500714}
+  starterAssetsInputs: {fileID: 926030778347305609}
 --- !u!114 &3684784536836500714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3226,7 +3227,23 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 6019456721237411783}
+    - targetCorrespondingSourceObject: {fileID: 5393215578589016642, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5871894065254922863}
   m_SourcePrefab: {fileID: 100100000, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+--- !u!114 &926030778347305609 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5420857361349278248, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+    type: 3}
+  m_PrefabInstance: {fileID: 5180033589104918689}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3492457101499754229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e087ecce43ebbff45a1b360637807d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &953533747646853857 stripped
 CapsuleCollider:
   m_CorrespondingSourceObject: {fileID: 5393215578589016640, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
@@ -3261,6 +3278,31 @@ MonoBehaviour:
   playerInput: {fileID: 3492457101499754233}
   characterController: {fileID: 3492457101499754239}
   capsuleCollider: {fileID: 953533747646853857}
+  btnReturnLobby: {fileID: 8856839947101671254}
+  starterAssetsInputs: {fileID: 926030778347305609}
+  objectSkull: {fileID: 1625163956593118706}
+--- !u!114 &5871894065254922863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953533747646853859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!114 &3492457101499754226 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8616685848737228371, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
